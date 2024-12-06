@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """gloss chinese sentences in pinyin, word by word"""
 
 import sys
