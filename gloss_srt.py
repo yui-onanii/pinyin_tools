@@ -36,10 +36,16 @@ for sub in subs:
 		pinyins.extend(pinyins_for_word)
 
 	pinyin = pad_spaces(pinyins)
+
 	# example:
-	#   pinyin
-	#   original text
-	sub.content = f'{pinyin}\n{sub.content}'
+	#   pinyin for text line 1
+	#   original text line 1
+	#   pinyin for text line 2
+	#   original text line 2
+	new_lines = []
+	for pinyin_line, sub_line in zip(pinyin.split('\n'), sub.content.split('\n')):
+		new_lines.append(pinyin_line + '\n' + sub_line)
+	sub.content = '\n'.join(new_lines)
 
 new_srt_contents = srt.compose(subs)
 print(new_srt_contents)
