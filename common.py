@@ -2,6 +2,7 @@
 
 import jieba
 import pypinyin
+import srt
 
 def phrase2words(s: str) -> list[str]:
 	"""split chinese words in a sentence"""
@@ -15,3 +16,8 @@ def word2pinyin(w: str) -> list[str]:
 		assert len(x) == 1
 		res.extend(x)
 	return res
+
+def parse_srt(fp) -> list[srt.Subtitle]:
+	"""handy func"""
+	# N.B. srt.parse() returns an generator
+	return list(srt.parse(fp))

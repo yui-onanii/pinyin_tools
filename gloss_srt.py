@@ -6,6 +6,7 @@ import argparse
 
 import srt
 
+import common
 import gloss
 
 SEPS = '\n 　~～!！(（)）-—「」【】『』〖〗［］〚〛<>«»‹›《》«»‹›⟨⟩〈〉:：;；"“”\'‘’,，.。?？%％#№&$￥*＊+=\\＼/／|｜、·・'
@@ -25,8 +26,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument('SUB_FILE', type=argparse.FileType('r'))
 args = ap.parse_args()
 
-# N.B. srt.parse() returns an generator
-subs = list(srt.parse(args.SUB_FILE))
+subs = common.parse_srt(args.SUB_FILE)
 
 for sub in subs:
 	# gloss.gloss() returns list[tuple[str, list[str]]]
