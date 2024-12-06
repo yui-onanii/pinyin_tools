@@ -28,6 +28,10 @@ Comment: 0,0:00:00.00,0:00:00.00,Default,,0,0,0,template syl,{\pos($scenter,$smi
 Comment: 0,0:00:00.00,0:00:00.00,Default,,0,0,0,template furi,{\pos($scenter,$smiddle)\an5\k!syl.start_time/10!\k$kdur}
 '''
 
+def escape_ssa_txt(s: str) -> str:
+	"""currently just escapes all newline chars"""
+	return s.replace('\n', '\\N')
+
 def format_ssa_time(time: datetime.timedelta) -> str:
 	"""example ==> 1:22:33.44"""
 	assert not time.days  # ok, wtf?
@@ -65,7 +69,8 @@ class SSAWriter:
 		for start, end, txt in self._subs:
 			start_s = format_ssa_time(start)
 			end_s = format_ssa_time(end)
+			real_txt = escape_ssa_txt(txt)
 
 			# note we are not using Layer, Name, MarginX or Effect
-			self._fp.write(f'Dialogue: 0,{start_s},{end_s},Default,,0,0,0,,{txt}\n')
+			self._fp.write(f'Dialogue: 0,{start_s},{end_s},Default,,0,0,0,,{real_txt}\n')
 		self._fp.close()
