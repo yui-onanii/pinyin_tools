@@ -4,6 +4,16 @@
 
 import common
 
+def gloss(line: str) -> list[tuple[str, str]]:
+	"""gloss a line of text,
+	output will be a list of ("word", ["pinyin for hanzi1", "pinyin for hanzi2", ...])"""
+	words = common.phrase2words(line)
+	res = []
+	for word in words:
+		pinyins = common.word2pinyin(word)
+		res.append((word, pinyins))
+	return res
+
 def main():
 	def PS():
 		"""print an input prompt"""
@@ -12,11 +22,10 @@ def main():
 	PS()
 	for line in sys.stdin:
 		txt = line.strip()
-		words = common.phrase2words(txt)
-		for word in words:
-			py = common.word2pinyin(word)
+		glosses = gloss(txt)
+		for word, pinyins in glosses:
 			# example: 你好 nǐ hǎo
-			print(word, *py)
+			print(word, *pinyins)
 		PS()
 
 if __name__ == '__main__':
