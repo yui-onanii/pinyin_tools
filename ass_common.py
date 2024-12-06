@@ -4,8 +4,6 @@ import datetime
 
 # FIXME: i dont know what "Title" does, lets assume its just crap
 
-# the resolution here doesnt matter, so leave it
-
 # A default style is good enough for us
 
 # the first two lines are template code for applying furigana
@@ -19,8 +17,6 @@ ScriptType: v4.00+
 WrapStyle: 0
 ScaledBorderAndShadow: yes
 YCbCr Matrix: None
-PlayResX: 1280
-PlayResY: 720
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
