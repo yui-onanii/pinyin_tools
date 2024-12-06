@@ -24,8 +24,7 @@ Style: Default,Microsoft YaHei,48,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Comment: 0,0:00:00.00,0:00:00.00,Default,,0,0,0,template syl,{\pos($scenter,$smiddle)\an5\k!syl.start_time/10!\k$kdur}
-Comment: 0,0:00:00.00,0:00:00.00,Default,,0,0,0,template furi,{\pos($scenter,$smiddle)\an5\k!syl.start_time/10!\k$kdur}
+Comment: 0,0:00:00.00,0:00:00.00,Default,,0,0,0,template syl furi,{\pos($scenter,$smiddle)\an5\k!syl.start_time/10!\k$kdur}
 '''
 
 def escape_ssa_txt(s: str) -> str:
