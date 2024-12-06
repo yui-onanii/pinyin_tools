@@ -4,7 +4,7 @@
 
 import common
 
-def gloss(line: str) -> list[tuple[str, str]]:
+def gloss(line: str) -> list[tuple[str, list[str]]]:
 	"""gloss a line of text,
 	output will be a list of ("word", ["pinyin for hanzi1", "pinyin for hanzi2", ...])"""
 	words = common.phrase2words(line)
